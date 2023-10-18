@@ -1,0 +1,19 @@
+def missingCharacters(s):
+    # Alphabet and number lists
+    lets = list('abcdefghijklmnopqrstuvwxyz')
+    nums = list(map(str, range(10)))  # Convert numbers to strings for easier comparison
+
+    # Iterate over each character in s
+    for each in s:
+        if each in lets:
+            lets.remove(each)
+        elif each in nums:
+            nums.remove(each)
+    
+    # Depending on the desired behavior, you can return the remaining characters or some other result.
+    # In this case, I'm returning the remaining letters and numbers.
+    return ''.join(nums + lets)
+
+
+
+
