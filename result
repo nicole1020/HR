@@ -1,0 +1,23 @@
+
+def numCells(grid):
+    # Write your code here
+    res=0
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            val = grid[i][j]
+            
+            def check_neighbors(di, dj):
+                flag = True
+                for ii in range(max(0, i-1), min(len(grid), i+di)):
+                    for jj in range(max(0, j-1), min(len(grid[0]), j+dj)):
+                        if (ii, jj) != (i, j) and val <= grid[ii][jj]:
+                            flag = False
+                            return flag
+                return flag
+
+            if check_neighbors(2, 2):  # Checking immediate neighbors
+                res += 1
+            elif check_neighbors(3, 3):  # Checking wider range
+                res += 1
+
+    return res
