@@ -1,0 +1,11 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+
+    # Convert the list to a set to remove all duplicates, then convert it back to a list and sort it
+    arr = sorted(list(set(arr)))
+
+    # The second highest (runner-up) score is the second last element in the sorted list
+    runner_up = arr[-2]
+
+    print(runner_up)
